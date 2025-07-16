@@ -1,37 +1,37 @@
 function add(a, b) {
-    return a + b;
+    return (a + b)
 }
 
 function subtract(a, b) {
-    return a - b;
+    return (a - b)
 
 }
 
 function multiply(a, b) {
-    return a * b;
+    return (a * b).toFixed(4);
 }
 
 function divide(a, b) {
 
     if (b == 0) {
-        return "ERROR"
+        return "ERR"
     }
-    return ( a / b).toFixed(4);
+    return (a / b).toFixed(4);
 }
 
 function reminder(a, b) {
 
-    return a % b;
+    return (a % b).toFixed(4);
 }
 
 function operate(a, op, b) {
 
     switch (op) {
-        case "+": return add(a, b); break;
-        case "-": return subtract(a, b); break;
-        case "*": return multiply(a, b); break;
-        case "/": return divide(a, b); break;
-        case "%": return reminder(a, b); break;
+        case "+": return add(a, b);;
+        case "-": return subtract(a, b);
+        case "*": return multiply(a, b);
+        case "/": return divide(a, b);
+        case "%": return reminder(a, b);
         default: return "ERR";
     }
 }
@@ -63,7 +63,11 @@ buttons.forEach((b) => {
     const type = b.dataset.type;
     const value = b.dataset.value;
     b.addEventListener("click", () => {
+
         if (type == "number") {
+            if (value == "." && inputHolder.includes(".")) {
+                return;
+            }
             inputHolder += value;
             input.textContent += value
         }
@@ -87,27 +91,41 @@ buttons.forEach((b) => {
                 inputHolder = "";
                 result.textContent = "00000000000"
                 result.style.color = "rgb(87, 83, 83, .4)"
-                firstVal = ""
-                secondVal = ""
+                firstVal = undefined
+                secondVal = undefined
                 operator = ""
             }
             else if (value == "c") {
-                // let lastChar= input.textContent.slice(-1)
-                if (arrOp.includes(input.textContent.charAt(input.textContent.length - 1))) {
-                    operator = "";
-                }
+
+                let lastChar = input.textContent.slice(-1)
                 input.textContent = input.textContent.slice(0, -1)
-                inputHolder=inputHolder.slice(0,-1)
+                if (arrOp.includes(lastChar)) {
+                    operator = "";
+                    inputHolder = firstVal
+                }
+                else {
+                    inputHolder = inputHolder.slice(0, -1)
+                }
+
             }
         }
         if (type == "equal") {
-            console.log(firstVal)
-            console.log(secondVal)
-            secondVal = inputHolder;
-            inputHolder = ""
+            if (inputHolder === "") return;
             result.style.color = "rgb(66, 64, 64)"
-            result.textContent = operate(parseFloat(firstVal), operator, parseFloat(secondVal))
+            if (operator == undefined) {
+                result.textContent = inputHolder
+            }
+            else {
+                secondVal = inputHolder;
+                inputHolder = ""
 
+                result.textContent = operate(parseFloat(firstVal), operator, parseFloat(secondVal))
+                inputHolder = result.textContent;
+                firstVal = undefined;
+                secondVal = undefined;
+
+
+            }
 
         }
     }
