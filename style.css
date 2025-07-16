@@ -9,10 +9,11 @@
     padding: 0px;
     margin: 0px;
 }
+
 /* don't change this */
 .buttons-grid button {
 
-   
+
     height: 68px;
     /*almost 68.4*/
     width: 73px;
@@ -26,18 +27,20 @@
     cursor: pointer;
     border: none;
 }
-#equal{
-        width: 160px;
+
+#equal {
+    width: 160px;
 
 }
-main{
+
+main {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 15px;
 }
 
-.container{
+.container {
     position: relative;
     width: fit-content;
     height: fit-content;
@@ -51,6 +54,7 @@ main{
     height: 610px;
     display: block;
 }
+
 .buttons-grid {
 
     position: absolute;
@@ -59,29 +63,28 @@ main{
     width: 330px;
     flex-wrap: wrap;
     height: 400px;
-    top:180px;
-    left:28px;
+    top: 180px;
+    left: 28px;
     /* border: 1px solid red; */
 
 }
 
-.result{
+.result {
     font-family: "Minecraft";
     position: absolute;
-    /* border: 1px solid rebeccapurple; */
-    top:114px;
+    top: 114px;
     left: 56px;
     width: 270px;
-    color: rgb(87, 83, 83,.4);
+    color: rgb(87, 83, 83, .4);
     font-size: 45px;
     text-align: right;
     /* border: 1px solid rebeccapurple; */
 }
-.input{
-        font-family: "Minecraft";
+
+.input {
+    font-family: "Minecraft";
     position: absolute;
-    /* border: 1px solid rebeccapurple; */
-    top:45px;
+    top: 45px;
     left: 55px;
     width: 270px;
     color: rgb(66, 64, 64);
