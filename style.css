@@ -4,29 +4,57 @@
     padding: 0px;
     margin: 0px;
 }
+/* don't change this */
+.buttons-grid button {
 
-.container {
+   
+    height: 68px;
+    /*almost 68.4*/
+    width: 73px;
+    /* almost 73.66*/
 
-    position: relative;
+    background-size: contain;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    cursor: pointer;
+    border: none;
+}
+#equal{
+        width: 160px;
+
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
 }
 
-img {
-
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-        width: 500px;
+.container{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
 }
 
 .bg {
 
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    height: 610px;
+    display: block;
 }
-
-.but {}
-
 .buttons-grid {
 
     position: absolute;
-    left: 12px;
-    top: 10px;
     display: flex;
+    justify-content: space-between;
+    width: 330px;
+    flex-wrap: wrap;
+    height: 400px;
+    top:180px;
+    left:28px;
+    /* border: 1px solid red; */
+
 }
