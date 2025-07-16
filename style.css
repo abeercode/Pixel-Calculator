@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Minecraft";
+    src: url("./fonts/Minecraft/Minecraft.ttf") format('truetype');
+}
+
 * {
 
     box-sizing: border-box;
@@ -36,6 +41,7 @@ main{
     position: relative;
     width: fit-content;
     height: fit-content;
+    display: flex;
 }
 
 .bg {
@@ -57,4 +63,29 @@ main{
     left:28px;
     /* border: 1px solid red; */
 
+}
+
+.result{
+    font-family: "Minecraft";
+    position: absolute;
+    /* border: 1px solid rebeccapurple; */
+    top:114px;
+    left: 56px;
+    width: 270px;
+    color: rgb(87, 83, 83,.4);
+    font-size: 45px;
+    text-align: right;
+    /* border: 1px solid rebeccapurple; */
+}
+.input{
+        font-family: "Minecraft";
+    position: absolute;
+    /* border: 1px solid rebeccapurple; */
+    top:45px;
+    left: 55px;
+    width: 270px;
+    color: rgb(66, 64, 64);
+    font-size: 35px;
+    text-align: left;
+    /* border: 1px solid rebeccapurple; */
 }

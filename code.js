@@ -43,5 +43,4 @@ buttons.forEach((b) => {
     b.addEventListener("mouseleave", () => {
         b.style.backgroundImage = 'url("' + defaultImg + '")';
     })
-
 })
