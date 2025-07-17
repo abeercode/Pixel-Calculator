@@ -38,9 +38,12 @@ main {
     align-items: center;
     padding-top: 15px;
     background-image: url("./images/CalculatorPNG/randomBg.png");
-    height: 640px;
+    height: 100vh; 
     image-rendering: pixelated;
     image-rendering: crisp-edges;
+    /* background-size: cover; */
+    background-position: center;
+    background-repeat: repeat;
 }
 
 .container {

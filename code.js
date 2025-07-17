@@ -7,17 +7,17 @@ function subtract(a, b) {
 }
 
 function multiply(a, b) {
-    return (a * b).toFixed(3);
+    return (a * b).toFixed(2);
 }
 
 function divide(a, b) {
 
     if (b == 0) { return "ERR" }
-    return (a / b).toFixed(3);
+    return (a / b).toFixed(2);
 }
 
 function reminder(a, b) {
-    return (a % b).toFixed(4);
+    return (a % b).toFixed(3);
 }
 function operate(a, op, b) {
     switch (op) {
