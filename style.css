@@ -9,7 +9,6 @@
     padding: 0px;
     margin: 0px;
 }
-
 /* don't change this */
 .buttons-grid button {
 
@@ -65,7 +64,6 @@ main {
     height: 400px;
     top: 180px;
     left: 28px;
-    /* border: 1px solid red; */
 
 }
 
@@ -73,12 +71,11 @@ main {
     font-family: "Minecraft";
     position: absolute;
     top: 114px;
-    left: 56px;
+    left: 54px;
     width: 270px;
     color: rgb(87, 83, 83, .4);
     font-size: 45px;
     text-align: right;
-    /* border: 1px solid rebeccapurple; */
 }
 
 .input {
@@ -90,5 +87,4 @@ main {
     color: rgb(66, 64, 64);
     font-size: 35px;
     text-align: left;
-    /* border: 1px solid rebeccapurple; */
 }

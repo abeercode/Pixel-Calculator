@@ -42,7 +42,9 @@ let firstVal;
 let secondVal;
 let operator;
 let inputHolder = "";
-const arrOp = ["+", "-", "%", "*"]
+const arrOp = ["+", "-", "%", "*", "/"];
+const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
+
 
 buttons.forEach((b) => {
 
@@ -76,7 +78,6 @@ buttons.forEach((b) => {
                 secondVal = inputHolder;
                 firstVal = operate(parseFloat(firstVal), operator, parseFloat(inputHolder))
             }
-
             else {
                 firstVal = inputHolder;
             }
@@ -106,7 +107,6 @@ buttons.forEach((b) => {
                 else {
                     inputHolder = inputHolder.slice(0, -1)
                 }
-
             }
         }
         if (type == "equal") {
@@ -123,11 +123,23 @@ buttons.forEach((b) => {
                 inputHolder = result.textContent;
                 firstVal = undefined;
                 secondVal = undefined;
-
-
             }
-
         }
     }
     )
+}
+)
+
+//keyboard support
+document.addEventListener("keydown", (event) => {
+
+    const key = event.key;
+
+    if (key === "Enter") { document.querySelector('[data-value="="]').click(); return; }
+    if (key === "Escape") { document.querySelector('[data-value="ac"]').click(); return; }
+    if (key === "Backspace") { document.querySelector('[data-value="c"]').click(); return }
+    if (arrOp.includes(key) || nums.includes(key)) {
+
+        document.querySelector(`[data-value="${key}"]`).click(); return;
+    }
 })
