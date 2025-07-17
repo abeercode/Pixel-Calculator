@@ -8,16 +8,16 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+    font-family: "Minecraft";
 }
+
 /* don't change this */
 .buttons-grid button {
-
 
     height: 68px;
     /*almost 68.4*/
     width: 73px;
     /* almost 73.66*/
-
     background-size: contain;
     background-color: transparent;
     background-position: center;
@@ -37,6 +37,10 @@ main {
     justify-content: center;
     align-items: center;
     padding-top: 15px;
+    background-image: url("./images/CalculatorPNG/randomBg.png");
+    height: 640px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 .container {
@@ -68,7 +72,7 @@ main {
 }
 
 .result {
-    font-family: "Minecraft";
+
     position: absolute;
     top: 114px;
     left: 54px;
@@ -79,7 +83,7 @@ main {
 }
 
 .input {
-    font-family: "Minecraft";
+
     position: absolute;
     top: 45px;
     left: 55px;
@@ -87,4 +91,12 @@ main {
     color: rgb(66, 64, 64);
     font-size: 35px;
     text-align: left;
+}
+
+p {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    color: rgb(134, 32, 32);
+    font-size: 20px;
 }

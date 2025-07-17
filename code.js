@@ -4,28 +4,22 @@ function add(a, b) {
 
 function subtract(a, b) {
     return (a - b)
-
 }
 
 function multiply(a, b) {
-    return (a * b).toFixed(4);
+    return (a * b).toFixed(3);
 }
 
 function divide(a, b) {
 
-    if (b == 0) {
-        return "ERR"
-    }
-    return (a / b).toFixed(4);
+    if (b == 0) { return "ERR" }
+    return (a / b).toFixed(3);
 }
 
 function reminder(a, b) {
-
     return (a % b).toFixed(4);
 }
-
 function operate(a, op, b) {
-
     switch (op) {
         case "+": return add(a, b);;
         case "-": return subtract(a, b);
@@ -45,7 +39,6 @@ let inputHolder = "";
 const arrOp = ["+", "-", "%", "*", "/"];
 const nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "."];
 
-
 buttons.forEach((b) => {
 
     const baseName = b.dataset.img;
@@ -61,13 +54,13 @@ buttons.forEach((b) => {
         b.style.backgroundImage = 'url("' + defaultImg + '")';
     })
 
-    // ------------------------------------------------------------
+    // -------------------------the logic---------------------------------------
     const type = b.dataset.type;
     const value = b.dataset.value;
     b.addEventListener("click", () => {
 
         if (type == "number") {
-            if (value == "." && inputHolder.includes(".")) {
+            if ((value == "." && inputHolder.includes(".")) || input.textContent.length > 10) {
                 return;
             }
             inputHolder += value;
@@ -84,7 +77,6 @@ buttons.forEach((b) => {
             operator = value;
             inputHolder = ""
             input.textContent += value
-
         }
         if (type == "clear") {
             if (value == "ac") {
@@ -92,9 +84,7 @@ buttons.forEach((b) => {
                 inputHolder = "";
                 result.textContent = "00000000000"
                 result.style.color = "rgb(87, 83, 83, .4)"
-                firstVal = undefined
-                secondVal = undefined
-                operator = ""
+                firstVal = secondVal = operator = undefined
             }
             else if (value == "c") {
 
@@ -111,6 +101,7 @@ buttons.forEach((b) => {
         }
         if (type == "equal") {
             if (inputHolder === "") return;
+
             result.style.color = "rgb(66, 64, 64)"
             if (operator == undefined) {
                 result.textContent = inputHolder
@@ -121,8 +112,7 @@ buttons.forEach((b) => {
 
                 result.textContent = operate(parseFloat(firstVal), operator, parseFloat(secondVal))
                 inputHolder = result.textContent;
-                firstVal = undefined;
-                secondVal = undefined;
+                firstVal = secondVal = operator = undefined;
             }
         }
     }
@@ -135,11 +125,44 @@ document.addEventListener("keydown", (event) => {
 
     const key = event.key;
 
-    if (key === "Enter") { document.querySelector('[data-value="="]').click(); return; }
-    if (key === "Escape") { document.querySelector('[data-value="ac"]').click(); return; }
-    if (key === "Backspace") { document.querySelector('[data-value="c"]').click(); return }
-    if (arrOp.includes(key) || nums.includes(key)) {
+    if (key === "Enter") {
+        const button = document.querySelector('[data-value="="]')
+        button.click()
+        changeBg(button)
+        return;
+    }
+    if (key === "Escape") {
 
-        document.querySelector(`[data-value="${key}"]`).click(); return;
+        const button = document.querySelector('[data-value="ac"]')
+        button.click();
+        changeBg(button);
+        return;
+    }
+    if (key === "Backspace") {
+        const button = document.querySelector('[data-value="c"]')
+        button.click();
+        changeBg(button);
+        return
+    }
+    if (arrOp.includes(key) || nums.includes(key)) {
+        const button = document.querySelector(`[data-value="${key}"]`)
+        button.click();
+        changeBg(button)
+        return;
     }
 })
+
+function changeBg(button) {
+
+    const baseName = button.dataset.img;
+    const defaultImg = "./images/CalculatorPNG/" + baseName + ".png";
+    const hoverImg = "./images/CalculatorPNG/" + baseName + "Hover" + ".png";
+
+    button.style.backgroundImage = 'url("' + hoverImg + '")';
+
+    setTimeout(() => {
+        button.style.backgroundImage = 'url("' + defaultImg + '")';
+
+    }, 180);
+
+}
